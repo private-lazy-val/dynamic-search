@@ -1,0 +1,157 @@
+/* Normalize */
+@import url(public/vendor/normalize.css);
+/* Google fonts */
+@import url('https://api.fonts.coollabs.io/css2?family=Libre+Bodoni&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: inherit;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  --clr-primary: #FFCD58;
+  --clr-secondary: #DAD870;
+  --clr-bg: #FF5C4D;
+  --clr-hl: #FFC600;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Libre Bodoni', serif;
+  font-weight: 400;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: .75rem;
+  line-height: 1.6;
+  background: var(--clr-bg);
+  color: #FFF;
+}
+
+.h1 {
+  font-size: 1.95rem;
+}
+
+.content {
+  background: #FFF;
+  width: 50vw;
+  padding: 3em;
+  box-shadow: 0 0 3em rgba(0, 0, 0, .15);
+}
+
+.search {
+  --size: 60px;
+  border: 2px solid var(--clr-primary);
+  border-radius: 50px;
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  padding: 3px;
+  transition: width 400ms cubic-bezier(.18, .89, .32, 1.15);
+}
+
+.search:focus-within {
+  width: 100%;
+  border: 2px solid var(--clr-secondary);
+
+  .search__input {
+    opacity: 1;
+    cursor: initial;
+    width: calc(100% - var(--size));
+  }
+
+  .search__submit {
+    background: var(--clr-secondary);
+    transition: box-shadow 500ms ease;
+
+    &:focus,
+    &:hover {
+      outline: 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.search__input {
+  border: 0;
+  padding: 0 0 0 0.8em;
+  flex-grow: 1;
+  font-size: 1.5rem;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  line-height: calc(var(--size) - 3px);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.search__input::placeholder {
+  color: #B8BBC1;
+}
+
+.search__input:focus {
+  outline: 0;
+}
+
+.search__submit {
+  font-size: 1.5rem;
+  margin-left: auto;
+  background: var(--clr-primary);
+  border: 0;
+  border-radius: 50%;
+  width: calc(var(--size) - 10px);
+  height: calc(var(--size) - 10px);
+  color: #FFF;
+  cursor: pointer;
+  transition: background 200ms ease-in-out;
+}
+
+.form {
+  display: flex;
+}
+
+.options {
+  visibility: hidden;
+  transform: translateY(43px) translateX(-60%);
+  left: 50%;
+  width: 60%;
+  position: absolute;
+}
+
+.options__item {
+  background: #FFF;
+  color: #000;
+  text-align: center;
+  font-size: 1.2rem;
+  list-style: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.options__item:hover {
+  background-color: var(--clr-secondary);
+}
+
+.hl {
+  background: var(--clr-hl);
+}
+
+.show {
+  visibility: visible;
+}
+
+
